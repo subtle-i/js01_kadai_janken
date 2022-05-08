@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="js/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="css/sample.css">
+<title>気配りじゃんけん</title>
+</head>
+<body>
+
+<header>
+  <h1>先回り気配りの達人</h1>
+</header>
+
+<main>
+  <div id="instruction">
+    <p>あなたは今日一番乗りに出社しました。</p>
+    <p>これから来る同僚の体調を予測して、飲み物を差し入れてあげましょう。</p>
+  </div>
+  <ul>
+    <li><img id="drink-1_btn" src="./img/drink_energy_can.png" alt="energyDrink"></li>
+    <li><img id="drink-2_btn" src="./img/can_coffee.png" alt="cofee"></li>
+    <li><img id="drink-3_btn" src="./img/petbottle_sports.png" alt="sportsDrink"></li>
+  </ul>
+  <div>
+    <p>同僚の状態を以下の3つのうちから予想して、どの飲み物を差し入れるのがいいか選んでください。</p>
+  </div>
+  <div id="cards">
+    <div id="condition-1" class="card">
+      <div class="discription">
+        <p>
+          ①二日酔い
+        </p>
+      </div>
+      <div class="condition"><img id="condition_img-1" src="./img/futsukayoi.png" alt="futsukayoi"></div>
+    </div>
+    <div id="condition-2" class="card">
+      <div class="discription">
+        <p>
+          ②徹夜明け
+        </p>
+      </div>
+      <div class="condition"><img id="condition_img-2" src="./img/nebusoku_tetsuya_ake_woman.png" alt="tetsuya"></div>
+    </div>
+    <div id="condition-3" class="card">
+      <div class="discription">
+        <p>
+          ③平常運転
+        </p>
+      </div>
+      <div class="condition"><img id="condition_img-3" src="./img/computer05_businessman.png" alt="genki"></div>
+    </div>  
+  </div>
+  <div id="results" class="results">
+    <div id="result-A" class="balloon-top">
+      ありがとう！
+    </div>
+    <div id="result-B" class="balloon-top">
+      あ、どうも。
+    </div>
+    <div id="result-C" class="balloon-top">
+      うーん。。。
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>
+    2022.kikubari
+  </p>
+</footer>
+<script>
+//じゃんけん用のSCRIPTを書いてください
+const drink_1_2=$('#drink-1_btn,#drink-2_btn');
+const drink_1_3=$('#drink-1_btn,#drink-3_btn');
+const drink_2_3=$('#drink-2_btn,#drink-3_btn');
+const conditions_1_2=$('#condition-1,#condition-2');
+const conditions_1_3=$('#condition-1,#condition-3');
+const conditions_2_3=$('#condition-2,#condition-3');
+let num=(Math.ceil((Math.random())*3));
+$("#drink-1_btn").on("click",function(){
+  drink_2_3.fadeOut(500);
+  if(num==1) {
+    conditions_2_3.fadeOut(4000);
+    $("#result-B").delay(4000);
+    $('#result-B').fadeIn(1000);
+    //alert('あ、どうも。');
+} else if(num==2) {
+    conditions_1_3.fadeOut(4000);
+    $("#result-A").delay(4000);
+    $('#result-A').fadeIn(1000);
+    //alert('ありがとう！')
+} else if(num==3) {
+    conditions_1_2.fadeOut(4000);
+    $("#result-C").delay(4000);
+    $('#result-C').fadeIn(1000);
+    //alert('うーん。');
+}
+})
+$("#drink-2_btn").on("click",function(){
+  drink_1_3.fadeOut(500);
+  if(num==1) {
+    conditions_2_3.fadeOut(4000);
+    $("#result-C").delay(4000);
+    $('#result-C').fadeIn(1000)
+    //alert('うーん。');
+} else if(num==2) {
+    conditions_1_3.fadeOut(4000);
+    $("#result-B").delay(4000);
+    $('#result-B').fadeIn(1000);
+    //alert('あ、どうも。');
+} else if(num==3) {
+    conditions_1_2.fadeOut(1400);
+    $("#result-A").delay(4000);
+    $('#result-A').fadeIn(1000);
+    //alert('ありがとう！');
+}
+})
+$("#drink-3_btn").on("click",function(){
+  drink_1_2.fadeOut(500);
+  if(num==1) {
+    conditions_2_3.fadeOut(4000);
+    $("#result-A").delay(4000);
+    $('#result-A').fadeIn(1000);
+    //alert('ありがとう！');
+} else if(num==2) {
+    conditions_1_3.fadeOut(4000);
+    $("#result-C").delay(4000);
+    $('#result-C').fadeIn(1000);
+    //alert('うーん。');
+} else if(num==3) {
+    conditions_1_2.fadeOut(4000);
+    $("#result-B").delay(4000);
+    $('#result-B').fadeIn(1000);
+    //alert('あ、どうも。');
+}
+})
+
+
+    
+    
+    
+    
+    
+    
+    
+
+</script>
+</body>
+</html>
